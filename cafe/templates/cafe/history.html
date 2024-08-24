@@ -1,0 +1,19 @@
+{% extends "cafe/base.html" %}
+{% block content %}
+    <table class = "table table-dark">
+        <thead>
+            <tr>
+                <th scope = "col">#</th>
+                <th scope = "col">Name</th>
+                <th scope = "col">Order Total</th>
+            </tr>
+        </thead>
+        {% for item in data %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{% if item.name != '' %}{{ item.name }}{% endif %}</td>
+                <td>{{ item.total }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

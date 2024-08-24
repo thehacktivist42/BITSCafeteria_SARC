@@ -1,0 +1,18 @@
+{% extends "cafe/base.html" %}
+{% block content %}
+    {% for item in menu %}
+        <article class="media content-section" id = "menu-block">
+          <div class="media-body">
+            <div class="article-metadata">
+              <small class="price">Price: ₹{{ item.price }} | Payment Methods: BITS ID, UPI</small>
+            </div>
+            <h2><a class="article-title">{{ item.name }}</a></h2>
+            <p class="article-content">{{ item.description }}</p>
+            <form method = "post">
+              {% csrf_token %}
+              <button type = "submit" name = {{item.name}} class = "btn btn-warning" value = {{item.name}}>Add to cart</button>
+            </form>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
